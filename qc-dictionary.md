@@ -4,12 +4,13 @@
 | Key | Value |
 | --- | --- |
 | ID | QC-DICT-001 |
-| CrossReference | [QC-DM-001], [QC-OC-001], [QC-DCD-001] |
+| CrossReference | [QC-DM-001], [QC-OC-001], [QC-DCD-001], [QC-LANG-001] |
 
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-02 | Accepted | Jens Tirsvad Nielsen | S07 | Initial version | — |
+| 2026-10-03 | Proposed | Jens Tirsvad Nielsen | S07 | Criterion 7 rewritten for the single-file rule (no translated twins); QC-LANG-001 added to CrossReference | — |
 
 ---
 
@@ -29,7 +30,7 @@ Level: **Mandatory** criteria are the baseline every instance must meet; **Optio
 | 4 | The Operation Contracts, Sequence Diagrams, Design Class Diagrams and ERD use the IT term, not the PO term | Mandatory | Maintainability | A PO term in design artifacts is a defect |
 | 5 | Definitions are written in the PO language and are one sentence | Optional | Usability | |
 | 6 | "Used as PO term in" and "Used as IT term in" name artifact types that exist in the project | Optional | Maintainability | |
-| 7 | Translated artifacts (`<artifact>.<language>.md`) use the PO terms of the dictionary | Mandatory | Usability, Maintainability | Applies only when the PO language is not English |
+| 7 | The dictionary's `Language` and `Domain` rows, and the language of every row, match the PO language and domain in the project registry | Mandatory | Usability, Maintainability | Replaces the translated-artifacts check: there is no translated twin, the PO-language file is the artifact. Whether other artifacts use the dictionary's terms is checked by the language and domain checklist ([QC-LANG-001]) |
 
 ## Common Defects
 
@@ -37,14 +38,16 @@ Level: **Mandatory** criteria are the baseline every instance must meet; **Optio
 - The IT term used in the Domain Model, or the PO term in a design class
 - Two PO terms for one IT term
 - A definition copied from the IT term in the wrong language
+- A dictionary whose `Domain` row differs from the PO domain, or that mixes terms of two domains
 
 ## Traceability Rule
 
 - Backward: Every row traces to a concept in the Domain Model checklist ([QC-DM-001]) or a term in the Business Case
-- Forward: Feeds the Operation Contract ([QC-OC-001]) and Design Class Diagram ([QC-DCD-001]) checklists, which must use the IT terms
+- Forward: Feeds the Operation Contract ([QC-OC-001]) and Design Class Diagram ([QC-DCD-001]) checklists, which must use the IT terms, and the language and domain checklist ([QC-LANG-001]), which checks that PO-language artifacts use the PO terms
 
 ---
 
 [QC-DM-001]: ./qc-domain-model.md
 [QC-OC-001]: ./qc-operation-contract.md
 [QC-DCD-001]: ./qc-dcd.md
+[QC-LANG-001]: ./qc-language-domain.md
