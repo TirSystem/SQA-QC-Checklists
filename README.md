@@ -11,6 +11,8 @@ ISO/IEC 25010:2023 quality characteristic.
   Model Canvas, BPMN, Governance, Milestones and gateways
 - Requirements and design: Use Case Diagram, Use Case, User Story, Domain Model,
   SSD, Operation Contract, Sequence Diagram, DCD, ERD, ADR
+- Cross-cutting: Language and Domain (applies to every artifact type written in
+  the Product Owner's language), Domain Dictionary
 - Source code: Python, C, C++, C#
 
 ## Use
