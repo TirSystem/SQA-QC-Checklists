@@ -9,7 +9,8 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-03 | Proposed | Jens Tirsvad Nielsen | S07 | Initial version | — |
+| 2026-10-03 | Proposed | Jens Tirsvad Nielsen | S07 | Initial version | [95e18ad] |
+| 2026-10-10 | Proposed | Jens Tirsvad Nielsen | S07 | Common Defects: added a line for criterion 4 (register) and one for criterion 10 (abbreviations); the Commit cell of the first row is now a link | pending |
 
 ---
 
@@ -42,6 +43,8 @@ Level: **Mandatory** criteria are the baseline every instance must meet; **Optio
 - The English document replaced by a translation without a Version History row or a new review
 - A translated copy kept beside the document "for convenience"
 - Domain terms used loosely because the reviewer does not know the domain
+- A document in the right language but the wrong register, for example a milestone written as an engineering note, or a business case full of implementation detail
+- An abbreviation used without being spelled out on first use, or spelled out in another language than the document's
 
 ## Traceability Rule
 
@@ -51,3 +54,4 @@ Level: **Mandatory** criteria are the baseline every instance must meet; **Optio
 ---
 
 [QC-DICT-001]: ./qc-dictionary.md
+[95e18ad]: https://git.tirsystem.com/TirSystem/sqa-qc-checklists/commit/95e18adcf6e39c91880ec3f13e97dc8e2221dc62
