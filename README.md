@@ -1,4 +1,4 @@
-# SQA-QC-Checklists
+# sqa-qc-checklists
 
 Quality-criteria (QC) checklists used by TirSystem to review project
 documents and source code. Each checklist is one Markdown file, `qc-<type>.md`,
@@ -28,7 +28,7 @@ conventions for the language; they check that code follows them.
 ## Used as a submodule
 
 ```bash
-git submodule add https://github.com/TirSystem/SQA-QC-Checklists.git qc
+git submodule add https://github.com/TirSystem/sqa-qc-checklists.git qc
 ```
 
 ## License
