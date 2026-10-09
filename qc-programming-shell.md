@@ -9,8 +9,8 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-02 | Accepted | Jens Tirsvad Nielsen | S07 | Initial version | — |
-| 2026-10-09 | Proposed | Jens Tirsvad Nielsen | S02 | Added criterion 15 (DRY) | [304ec77] |
+| 2026-10-09 | Deprecated | Jens Tirsvad Nielsen | S02 | Added criterion 15 (DRY) | [304ec77] |
+| 2026-10-09 | Accepted | Jens Tirsvad Nielsen | S02 | Accepted by the author as stand-in for S02 (Coding Standards Governance), through the pull request that merges this row; the delta re-review of the new criteria is a draft confirmed by the author as stand-in, not independently | [b5e5613] |
 
 ---
 
@@ -61,3 +61,4 @@ Level: **Mandatory** criteria are the baseline every instance must meet; **Optio
 [QC-DCD-001]: ./qc-dcd.md
 [QC-ADR-001]: ./qc-adr.md
 [304ec77]: https://git.tirsystem.com/TirSystem/SQA-QC-Checklists/commit/304ec7751bd39ff6d54862c2cd10958ef90123ff
+[b5e5613]: https://git.tirsystem.com/TirSystem/SQA-QC-Checklists/commit/b5e5613a384527a18cd40594fc24cac4bdd11a31
