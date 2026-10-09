@@ -11,6 +11,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-01 | Accepted | Jens Tirsvad Nielsen | S07 | First public release (1.0.0) | — |
+| 2026-10-09 | Proposed | Jens Tirsvad Nielsen | S02 | Added criterion 9 (dependency direction) | pending |
 
 ---
 
@@ -32,6 +33,7 @@ Level: **Mandatory** criteria are the baseline every instance must meet; **Optio
 | 6 | Method signatures are traceable to Operation Contracts and/or design Sequence Diagrams | Mandatory | Functional Suitability, Maintainability | Prevents drift between design layers |
 | 7 | Class names and structure remain consistent with the Domain Model concepts they refine | Mandatory | Maintainability, Compatibility | Design classes should not silently rename or drop domain concepts |
 | 8 | No circular dependencies between classes/packages unless explicitly justified | Optional | Maintainability, Reliability | Circular coupling harms testability and portability |
+| 9 | Dependencies between classes and packages point inward: domain classes do not depend on infrastructure, delivery or framework classes | Mandatory | Maintainability, Portability | Business rules must be buildable and testable without the outer layers; cycles are criterion 8 |
 
 ## Common Defects
 
@@ -40,6 +42,7 @@ Level: **Mandatory** criteria are the baseline every instance must meet; **Optio
 - Composition used where the parts do not share the whole's lifecycle (or vice versa)
 - Method signatures that don't match any Operation Contract or Sequence Diagram message
 - Unannotated or inconsistently applied design patterns
+- Domain classes that depend on persistence, user-interface or framework classes
 
 ## Traceability Rule
 

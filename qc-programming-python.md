@@ -11,6 +11,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-01 | Accepted | Jens Tirsvad Nielsen | S07 | First public release (1.0.0) | — |
+| 2026-10-09 | Proposed | Jens Tirsvad Nielsen | S02 | Added criteria 14 to 16 (DRY, dependency rule and SOLID) | pending |
 
 ---
 
@@ -37,6 +38,9 @@ Level: **Mandatory** criteria are the baseline every instance must meet; **Optio
 | 11 | Tests exist for new behaviour, are named for the behaviour, and do not depend on order or the network | Mandatory | Reliability, Maintainability | |
 | 12 | Type checker runs in strict mode without errors; `Any` is justified in a comment | Optional | Reliability, Maintainability | |
 | 13 | Dependencies are declared and pinned in the project's dependency file, none unused | Optional | Portability, Security | |
+| 14 | Each piece of knowledge (a business rule, constant, format, validation or query) is defined in one place; code is merged only where it expresses the same knowledge, not where it merely looks alike | Mandatory | Maintainability | Modularity, Reusability. Rule: `coding-conventions` skill, “State each piece of knowledge once” |
+| 15 | Imports point inward: business-rule modules import no framework, database, UI or delivery-mechanism code, and there are no import cycles | Mandatory | Maintainability, Portability | Modularity, Portability. Rule: `coding-conventions` skill, “Dependencies point inward” |
+| 16 | SOLID holds: a class or module has one reason to change; new behaviour is added by extension, not by editing a type test in several places; subclasses honour the contract of their base; protocols are narrow; high-level code depends on protocols or abstract types and receives its implementations | Mandatory | Maintainability | Single responsibility is the most commonly violated. Rule: `coding-conventions` skill, “SOLID” |
 
 ## Common Defects
 
@@ -47,6 +51,9 @@ Level: **Mandatory** criteria are the baseline every instance must meet; **Optio
 - `print` used for diagnostics; wildcard imports
 - Code reformatted by hand, or an unrelated reformat mixed into a functional change
 - Classes or methods that appear in no design artifact and have no stated reason
+- The same rule, constant or validation written in two modules, or two functions merged because they look alike although they change for different reasons
+- Business-rule modules importing the ORM, the web framework or a database driver
+- A class with several unrelated responsibilities, or an `isinstance` chain repeated in several places
 
 ## Traceability Rule
 

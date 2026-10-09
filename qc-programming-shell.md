@@ -10,6 +10,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-02 | Accepted | Jens Tirsvad Nielsen | S07 | Initial version | — |
+| 2026-10-09 | Proposed | Jens Tirsvad Nielsen | S02 | Added criterion 15 (DRY) | pending |
 
 ---
 
@@ -37,6 +38,7 @@ Level: **Mandatory** criteria are the baseline every instance must meet; **Optio
 | 12 | Formatted with `shfmt` (or the project's formatter) | Optional | Maintainability | |
 | 13 | Safe to re-run: a second run does not duplicate or corrupt what the first did | Optional | Reliability | |
 | 14 | Bash version and external tools it needs are stated; GNU-only options are named | Optional | Portability | |
+| 15 | A command sequence, constant, path or message used more than once is defined once (a function, a variable or a sourced helper); a helper is shared between scripts only where it expresses the same knowledge | Mandatory | Maintainability | Modularity, Reusability. Rule: `coding-conventions` skill, “State each piece of knowledge once” |
 
 ## Common Defects
 
@@ -47,6 +49,7 @@ Level: **Mandatory** criteria are the baseline every instance must meet; **Optio
 - A token echoed to the terminal or kept in the script
 - No usage message, so a wrong call fails with a cryptic error
 - A script that implements nothing in any task or design
+- The same path, option list or message pasted into several places in one script, or copied between scripts
 
 ## Traceability Rule
 

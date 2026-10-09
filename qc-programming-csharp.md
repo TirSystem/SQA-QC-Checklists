@@ -11,6 +11,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-01 | Accepted | Jens Tirsvad Nielsen | S07 | First public release (1.0.0) | — |
+| 2026-10-09 | Proposed | Jens Tirsvad Nielsen | S02 | Added criteria 14 to 16 (DRY, dependency rule and SOLID) | pending |
 
 ---
 
@@ -37,6 +38,9 @@ Level: **Mandatory** criteria are the baseline every instance must meet; **Optio
 | 11 | Public async APIs accept and pass a `CancellationToken` where the operation can be cancelled | Optional | Performance Efficiency, Reliability | |
 | 12 | Tests cover new behaviour, are named `Method_Condition_Expected`, and do not depend on order, time or the network | Mandatory | Reliability, Maintainability | |
 | 13 | Classes and members trace to the Design Class Diagram they implement; deviations are recorded | Mandatory | Functional Suitability, Maintainability | |
+| 14 | Each piece of knowledge (a business rule, constant, format, validation or query) is defined in one place; code is merged only where it expresses the same knowledge, not where it merely looks alike | Mandatory | Maintainability | Modularity, Reusability. Rule: `coding-conventions` skill, “State each piece of knowledge once” |
+| 15 | Namespace and project references point inward: business-rule code references no framework, database, UI or delivery-mechanism code, and there are no reference cycles | Mandatory | Maintainability, Portability | Modularity, Portability. Rule: `coding-conventions` skill, “Dependencies point inward” |
+| 16 | SOLID holds: a class has one reason to change; new behaviour is added by extension, not by editing a type test in several places; subtypes honour the contract of their base; interfaces are narrow; high-level code depends on interfaces and receives its implementations by injection | Mandatory | Maintainability | Single responsibility is the most commonly violated. Rule: `coding-conventions` skill, “SOLID” |
 
 ## Common Defects
 
@@ -47,6 +51,9 @@ Level: **Mandatory** criteria are the baseline every instance must meet; **Optio
 - Undisposed `HttpClient`, streams or database connections
 - `DateTime` used for instants, or `double` for money
 - Several public types in one file, or a file name that differs from its type
+- The same rule, constant or validation written in two places, or two methods merged because they look alike although they change for different reasons
+- Business-rule code that references the ORM, the web framework or a database driver
+- A class with several unrelated responsibilities, or `is`/`switch` type tests repeated in several places
 
 ## Traceability Rule
 

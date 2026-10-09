@@ -11,6 +11,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-01 | Accepted | Jens Tirsvad Nielsen | S07 | First public release (1.0.0) | — |
+| 2026-10-09 | Proposed | Jens Tirsvad Nielsen | S02 | Added criteria 14 to 16 (DRY, dependency rule and SOLID) | pending |
 
 ---
 
@@ -37,6 +38,9 @@ Level: **Mandatory** criteria are the baseline every instance must meet; **Optio
 | 11 | Static analysis with the Core Guidelines checks is clean, or each suppression is justified | Optional | Reliability, Maintainability | |
 | 12 | Tests cover new behaviour and run under address and undefined-behaviour sanitizers in at least one build | Optional | Reliability, Security | |
 | 13 | Classes and operations trace to the Design Class Diagram they implement; deviations are recorded | Mandatory | Functional Suitability, Maintainability | |
+| 14 | Each piece of knowledge (a business rule, constant, format, validation or query) is defined in one place; code is merged only where it expresses the same knowledge, not where it merely looks alike | Mandatory | Maintainability | Modularity, Reusability. Rule: `coding-conventions` skill, “State each piece of knowledge once” |
+| 15 | Includes and link dependencies point inward: business-rule code includes no I/O, platform, UI or framework headers, and the include graph has no cycles | Mandatory | Maintainability, Portability | Modularity, Portability. Rule: `coding-conventions` skill, “Dependencies point inward” |
+| 16 | SOLID holds: a class has one reason to change; new behaviour is added by a new derived type, not by editing a type switch in several places; derived classes honour the contract of their base (`override`); abstract interfaces are narrow; high-level code depends on abstract types and receives its implementations | Mandatory | Maintainability | Single responsibility is the most commonly violated. Rule: `coding-conventions` skill, “SOLID” |
 
 ## Common Defects
 
@@ -47,6 +51,9 @@ Level: **Mandatory** criteria are the baseline every instance must meet; **Optio
 - Macros for constants or small functions
 - Returning a reference or view to a local or temporary
 - Exceptions and error codes mixed in the same module without a stated rule
+- The same rule, constant or validation written in two places, or two functions merged because they look alike although they change for different reasons
+- Business-rule code that includes a framework, platform or database header
+- A class with several unrelated responsibilities, or a `switch` on a type code repeated in several places
 
 ## Traceability Rule
 
