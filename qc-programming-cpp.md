@@ -11,7 +11,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-01 | Accepted | Jens Tirsvad Nielsen | S07 | First public release (1.0.0) | — |
-| 2026-10-09 | Proposed | Jens Tirsvad Nielsen | S02 | Added criteria 14 to 16 (DRY, dependency rule and SOLID) | pending |
+| 2026-10-09 | Proposed | Jens Tirsvad Nielsen | S02 | Added criteria 14 to 16 (DRY, dependency rule and SOLID) | [304ec77] |
 
 ---
 
@@ -64,3 +64,4 @@ Level: **Mandatory** criteria are the baseline every instance must meet; **Optio
 
 [QC-DCD-001]: ./qc-dcd.md
 [QC-ADR-001]: ./qc-adr.md
+[304ec77]: https://git.tirsystem.com/TirSystem/SQA-QC-Checklists/commit/304ec7751bd39ff6d54862c2cd10958ef90123ff
