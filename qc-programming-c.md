@@ -11,6 +11,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-01 | Accepted | Jens Tirsvad Nielsen | S07 | First public release (1.0.0) | — |
+| 2026-10-09 | Proposed | Jens Tirsvad Nielsen | S02 | Added criteria 14 to 15 (DRY and dependency rule) | [304ec77] |
 
 ---
 
@@ -37,6 +38,8 @@ Level: **Mandatory** criteria are the baseline every instance must meet; **Optio
 | 11 | Error reporting (status codes, `errno` use) is documented in the header | Optional | Usability, Reliability | |
 | 12 | Tests cover new behaviour and run under address and undefined-behaviour sanitizers in at least one build | Optional | Reliability, Security | |
 | 13 | Modules and functions trace to the Design Class Diagram or design artifact they implement | Mandatory | Functional Suitability, Maintainability | |
+| 14 | Each piece of knowledge (a business rule, constant, format, validation or query) is defined in one place; code is merged only where it expresses the same knowledge, not where it merely looks alike | Mandatory | Maintainability | Modularity, Reusability. Rule: `coding-conventions` skill, “State each piece of knowledge once” |
+| 15 | Includes point inward: business-rule modules include no I/O, platform or UI headers, the include graph has no cycles, and a module has one responsibility (rules are not mixed with I/O) | Mandatory | Maintainability, Portability | Modularity, Portability. Rule: `coding-conventions` skill, “Dependencies point inward” |
 
 ## Common Defects
 
@@ -47,6 +50,9 @@ Level: **Mandatory** criteria are the baseline every instance must meet; **Optio
 - Macros doing the work of `static inline` functions or `enum`
 - Identifiers starting with an underscore and an uppercase letter
 - Undefined behaviour hidden by a build that happens to work
+- The same rule, constant or table written in two modules
+- A business-rule module that includes a platform, I/O or UI header, or modules that include each other
+- A module that mixes business rules with file or device access
 
 ## Traceability Rule
 
@@ -57,3 +63,4 @@ Level: **Mandatory** criteria are the baseline every instance must meet; **Optio
 
 [QC-DCD-001]: ./qc-dcd.md
 [QC-ADR-001]: ./qc-adr.md
+[304ec77]: https://git.tirsystem.com/TirSystem/SQA-QC-Checklists/commit/304ec7751bd39ff6d54862c2cd10958ef90123ff
